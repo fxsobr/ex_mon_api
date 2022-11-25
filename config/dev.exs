@@ -2,8 +2,8 @@ import Config
 
 # Configure your database
 config :ex_mon_api, ExMonApi.Repo,
-  username: "padme",
-  password: "ada",
+  username: "postgres",
+  password: "pequena",
   hostname: "localhost",
   database: "ex_mon_api_dev",
   stacktrace: true,
