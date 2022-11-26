@@ -1,4 +1,4 @@
-defmodule ExMonApi.Trainer.Delete do
+defmodule ExMonApi.Trainer.Get do
   @moduledoc false
   alias ExMonApi.{Repo, Trainer}
   alias Ecto.UUID
@@ -6,16 +6,14 @@ defmodule ExMonApi.Trainer.Delete do
   def call(id) do
     case UUID.cast(id) do
       :error -> {:error, "Invalid ID format!"}
-      {:ok, uuid} -> delete(uuid)
+      {:ok, uuid} -> get(uuid)
     end
   end
 
-  defp delete(uuid) do
-    case fetch_trainer(uuid) do
+  defp get(uuid) do
+    case Repo.get(Trainer, uuid) do
       nil -> {:error, "Trainer not found!"}
-      trainer -> Repo.delete(trainer)
+      trainer -> {:ok, trainer}
     end
   end
-
-  defp fetch_trainer(uuid), do: Repo.get(Trainer, uuid)
 end
