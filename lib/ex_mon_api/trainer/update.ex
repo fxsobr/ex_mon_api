@@ -1,7 +1,8 @@
 defmodule ExMonApi.Trainer.Update do
   @moduledoc false
-  alias ExMonApi.{Repo, Trainer}
+
   alias Ecto.UUID
+  alias ExMonApi.{Repo, Trainer}
 
   def call(%{"id" => uuid} = params) do
     case UUID.cast(uuid) do
