@@ -1,5 +1,6 @@
 defmodule ExMonApi.Trainer do
   @moduledoc false
+  alias ExMonApi.Trainer.Pokemon
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -9,6 +10,7 @@ defmodule ExMonApi.Trainer do
     field :name, :string
     field :password_hash, :string
     field :password, :string, virtual: true
+    has_many(:pokemon, Pokemon)
     timestamps()
   end
 
