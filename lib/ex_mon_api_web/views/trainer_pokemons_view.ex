@@ -1,6 +1,5 @@
 defmodule ExMonApiWeb.TrainerPokemonsView do
   @moduledoc false
-  alias ExMonApi.Trainer
   alias ExMonApi.Trainer.Pokemon
   use ExMonApiWeb, :view
 
@@ -49,6 +48,31 @@ defmodule ExMonApiWeb.TrainerPokemonsView do
       types: types,
       trainer: %{trainer_id: trainer_id, name: trainer_name},
       weight: weight
+    }
+  end
+
+  def render("update_pokemon.json", %{
+        pokemon: %Pokemon{
+          id: id,
+          name: name,
+          inserted_at: inserted_at,
+          nickname: nickname,
+          types: types,
+          trainer_id: trainer_id,
+          weight: weight
+        }
+      }) do
+    %{
+      message: "Pokemon updated",
+      pokemon: %{
+        id: id,
+        name: name,
+        inserted_at: inserted_at,
+        nickname: nickname,
+        types: types,
+        trainer_id: trainer_id,
+        weight: weight
+      }
     }
   end
 end
