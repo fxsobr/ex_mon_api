@@ -9,6 +9,7 @@ config :ex_mon_api, ExMonApi.Repo,
   username: "postgres",
   password: "pequena",
   hostname: "10.3.0.155",
+  port: "5438",
   database: "ex_mon_api_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
