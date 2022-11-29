@@ -4,9 +4,9 @@ import Config
 config :ex_mon_api, ExMonApi.Repo,
   username: "postgres",
   password: "pequena",
-  hostname: "10.3.0.155" #localhost,
+  hostname: "10.3.0.155",
   database: "ex_mon_api_dev",
-  port: "5438" #5432,
+  port: "5438",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
